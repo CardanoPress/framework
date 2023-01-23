@@ -111,6 +111,13 @@ class BlockfrostClient
 
             $value['status_code'] = $response->getStatusCode();
             $value['data'] = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
+
+            if (isset($value['data']['status_code'], $value['data']['error'], $value['data']['message'])) {
+                $value['status_code'] = $value['data']['status_code'];
+
+                $value['error'] = $value['data'];
+                $value['data']  = [];
+            }
         } catch (RequestException $error) {
             $response = $error->getResponse();
 
