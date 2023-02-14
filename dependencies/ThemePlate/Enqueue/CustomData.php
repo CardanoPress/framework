@@ -15,20 +15,30 @@ class CustomData {
 
 	public const ATTRIBUTES = array(
 		'common'  => array(
+			'blocking',
 			'crossorigin',
 			'integrity',
 			'referrerpolicy',
+			'type',
 		),
+		// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes
 		'scripts' => array(
 			'async',
 			'defer',
 			'nomodule',
 			'nonce',
-			'type',
+			'src',
 		),
+		// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style#attributes
 		'styles'  => array(
-			'disabled',
+			'as',
+			'href',
 			'hreflang',
+			'imagesizes',
+			'imagesrcset',
+			'media',
+			'rel',
+			'title',
 		),
 	);
 
@@ -36,7 +46,37 @@ class CustomData {
 	private array $styles  = array();
 
 
-	public function action(): void {
+	public function filter( array $data, string $type ): array {
+
+		$attributes  = array_merge( self::ATTRIBUTES['common'], self::ATTRIBUTES[ $type ] );
+		$intersected = array_intersect_key( $data, array_fill_keys( $attributes, '' ) );
+
+		$custom = array_filter(
+			$data,
+			function( $key ) {
+				return 'data-' === substr( $key, 0, 5 );
+			},
+			ARRAY_FILTER_USE_KEY
+		);
+
+		return array_merge( $intersected, $custom );
+
+	}
+
+
+	public function add( string $type, string $handle, array $data ): void {
+
+		if ( ! in_array( $type, array( 'script', 'style' ), true ) ) {
+			_doing_it_wrong( __METHOD__, esc_attr( 'Only "script" and "style" are known types' ), '2.2.0' );
+			return;
+		}
+
+		$this->{$type . 's'}[ $handle ] = $data;
+
+	}
+
+
+	public function init(): void {
 
 		global $wp_scripts, $wp_styles;
 
@@ -49,18 +89,19 @@ class CustomData {
 			$type = get_class( $dependencies );
 			$type = strtolower( substr( $type, 3 ) );
 
-			$attributes = array_merge( self::ATTRIBUTES['common'], self::ATTRIBUTES[ $type ] );
-
 			foreach ( $dependencies->registered as $dependency ) {
-				$specified = array_intersect( array_keys( $dependency->extra ), $attributes );
+				$specified = $this->filter( $dependency->extra, $type );
 
 				if ( ! empty( $specified ) ) {
-					foreach ( $specified as $attribute ) {
-						$this->{$type}[ $dependency->handle ][ $attribute ] = $dependency->extra[ $attribute ];
-					}
+					$this->{$type}[ $dependency->handle ] = $specified;
 				}
 			}
 		}
+
+	}
+
+
+	public function action(): void {
 
 		if ( ! empty( $this->scripts ) ) {
 			add_filter( 'script_loader_tag', array( $this, 'script' ), 10, 2 );
