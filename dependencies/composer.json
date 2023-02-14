@@ -22,10 +22,14 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "mozart compose"
+      "mv vendor/themeplate/core/assets .",
+      "mozart compose",
+      "mv assets ThemePlate"
     ],
     "post-update-cmd": [
-      "mozart compose"
+      "mv vendor/themeplate/core/assets .",
+      "mozart compose",
+      "mv assets ThemePlate"
     ]
   }
 }
