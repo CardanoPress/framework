@@ -7,7 +7,7 @@
 
 namespace CardanoPress\Interfaces;
 
-use Monolog\Logger;
+use CardanoPress\Dependencies\Monolog\Logger;
 
 interface ApplicationInterface
 {

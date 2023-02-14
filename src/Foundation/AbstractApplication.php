@@ -7,11 +7,11 @@
 
 namespace CardanoPress\Foundation;
 
+use CardanoPress\Dependencies\Monolog\Logger as MonoLogger;
+use CardanoPress\Dependencies\ThemePlate\Logger;
 use CardanoPress\Interfaces\ApplicationInterface;
 use CardanoPress\Interfaces\HookInterface;
 use CardanoPress\SharedBase;
-use Monolog\Logger as MonoLogger;
-use ThemePlate\Logger;
 
 abstract class AbstractApplication extends SharedBase implements ApplicationInterface, HookInterface
 {

@@ -7,10 +7,10 @@
 
 namespace CardanoPress\Foundation;
 
+use CardanoPress\Dependencies\ThemePlate\Enqueue;
 use CardanoPress\Interfaces\HookInterface;
 use CardanoPress\Interfaces\ManifestInterface;
 use CardanoPress\SharedBase;
-use ThemePlate\Enqueue;
 
 abstract class AbstractManifest extends SharedBase implements ManifestInterface, HookInterface
 {

@@ -7,15 +7,15 @@
 
 namespace CardanoPress\Clients;
 
+use CardanoPress\Dependencies\GuzzleHttp\Client;
+use CardanoPress\Dependencies\GuzzleHttp\Exception\ConnectException;
+use CardanoPress\Dependencies\GuzzleHttp\Exception\GuzzleException;
+use CardanoPress\Dependencies\GuzzleHttp\Exception\RequestException;
+use CardanoPress\Dependencies\GuzzleHttp\HandlerStack;
+use CardanoPress\Dependencies\GuzzleHttp\Middleware;
+use CardanoPress\Dependencies\GuzzleHttp\Psr7\Request;
+use CardanoPress\Dependencies\GuzzleHttp\Psr7\Response;
 use Closure;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
 use JsonException;
 
 class BlockfrostClient
