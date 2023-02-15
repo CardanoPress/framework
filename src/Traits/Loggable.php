@@ -7,7 +7,7 @@
 
 namespace CardanoPress\Traits;
 
-use CardanoPress\Dependencies\Psr\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 trait Loggable
 {
