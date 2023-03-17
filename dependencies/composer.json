@@ -28,11 +28,13 @@
   },
   "scripts": {
     "post-install-cmd": [
+      "rm -rf assets ThemePlate/assets",
       "mv vendor/themeplate/core/assets .",
       "mozart compose",
       "mv assets ThemePlate"
     ],
     "post-update-cmd": [
+      "rm -rf assets ThemePlate/assets",
       "mv vendor/themeplate/core/assets .",
       "mozart compose",
       "mv assets ThemePlate"
