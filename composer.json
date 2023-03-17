@@ -21,9 +21,6 @@
     "ext-json": "*"
   },
   "autoload": {
-    "files": [
-      "dependencies/compatibility.php"
-    ],
     "psr-4": {
       "CardanoPress\\Dependencies\\": "dependencies/",
       "CardanoPress\\": "src/"

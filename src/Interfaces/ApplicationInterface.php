@@ -7,7 +7,7 @@
 
 namespace CardanoPress\Interfaces;
 
-use Psr\Log\LoggerInterface;
+use CardanoPress\Dependencies\Monolog\Logger;
 
 interface ApplicationInterface
 {
@@ -19,5 +19,5 @@ interface ApplicationInterface
 
     public function getPluginFile(): string;
 
-    public function logger(string $channel): LoggerInterface;
+    public function logger(string $channel): Logger;
 }
