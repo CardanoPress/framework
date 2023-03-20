@@ -941,16 +941,16 @@
         },
         {
             "name": "themeplate/page",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Page.git",
-                "reference": "15e4beb78b4a4fab18ba278095ad7915946e48be"
+                "reference": "4e72630d326a7c24533d4949b88e915b798af2a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Page/zipball/15e4beb78b4a4fab18ba278095ad7915946e48be",
-                "reference": "15e4beb78b4a4fab18ba278095ad7915946e48be",
+                "url": "https://api.github.com/repos/ThemePlate/Page/zipball/4e72630d326a7c24533d4949b88e915b798af2a6",
+                "reference": "4e72630d326a7c24533d4949b88e915b798af2a6",
                 "shasum": ""
             },
             "require": {
@@ -978,9 +978,9 @@
             "description": "ThemePlate custom options pages",
             "support": {
                 "issues": "https://github.com/ThemePlate/Page/issues",
-                "source": "https://github.com/ThemePlate/Page/tree/v2.0.0"
+                "source": "https://github.com/ThemePlate/Page/tree/v2.1.0"
             },
-            "time": "2022-06-05T03:28:15+00:00"
+            "time": "2023-03-05T13:16:52+00:00"
         },
         {
             "name": "themeplate/settings",
