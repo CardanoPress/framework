@@ -7,7 +7,7 @@
 
 namespace CardanoPress\Interfaces;
 
-use CardanoPress\Dependencies\Psr\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 interface AdminInterface
 {
