@@ -11,4 +11,6 @@ function cardanopress_framework_version(): string {
 
 if (! interface_exists('Psr\Log\LoggerInterface')) {
     class_alias('CardanoPress\Dependencies\Psr\Log\LoggerInterface', 'Psr\Log\LoggerInterface');
+} else {
+    class_alias('Psr\Log\LoggerInterface', 'CardanoPress\Dependencies\Psr\Log\LoggerInterface');
 }
