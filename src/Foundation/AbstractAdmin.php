@@ -46,7 +46,9 @@ abstract class AbstractAdmin extends SharedBase implements AdminInterface, HookI
         if ('' !== $parent) {
             unset($config['parent']);
 
-            $page = new SubMenuPage($title, $parent, $config);
+            $page = new SubMenuPage($title, '', $config);
+
+            $page->parent($parent);
         } else {
             $page = new MenuPage($title, $config);
         }
