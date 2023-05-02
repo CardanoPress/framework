@@ -10,6 +10,7 @@ use CardanoPress\Clients\BlockfrostClient;
 use CardanoPress\Interfaces\BlockfrostInterface;
 use CardanoPress\SharedBase;
 use CardanoPress\Traits\Loggable;
+use Psr\Log\LoggerInterface;
 
 abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterface
 {
@@ -18,10 +19,14 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
     protected BlockfrostClient $client;
     protected array $lastResponse = [];
 
-    public function __construct(string $queryNetwork)
+    public function __construct(string $queryNetwork, LoggerInterface $logger = null)
     {
         $projectId = $this->getProjectId($queryNetwork);
         $this->client = new BlockfrostClient($projectId);
+
+        if (null !== $logger) {
+            $this->setLogger($logger);
+        }
 
         $this->initialize(); // Set logger here
     }

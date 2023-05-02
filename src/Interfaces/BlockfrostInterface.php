@@ -7,10 +7,11 @@
 namespace CardanoPress\Interfaces;
 
 use CardanoPress\Clients\BlockfrostClient;
+use Psr\Log\LoggerInterface;
 
 interface BlockfrostInterface
 {
-    public function __construct(string $queryNetwork);
+    public function __construct(string $queryNetwork, LoggerInterface $logger = null);
 
     public static function getProjectId(string $network): string;
 
