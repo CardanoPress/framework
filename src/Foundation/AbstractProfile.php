@@ -7,10 +7,11 @@
 
 namespace CardanoPress\Foundation;
 
+use CardanoPress\Interfaces\ProfileInterface;
 use CardanoPress\SharedBase;
 use WP_User;
 
-abstract class AbstractProfile extends SharedBase
+abstract class AbstractProfile extends SharedBase implements ProfileInterface
 {
     protected WP_User $user;
     private string $prefix = 'cardanopress_';

@@ -7,10 +7,11 @@
 namespace CardanoPress\Foundation;
 
 use CardanoPress\Clients\BlockfrostClient;
+use CardanoPress\Interfaces\BlockfrostInterface;
 use CardanoPress\SharedBase;
 use CardanoPress\Traits\Loggable;
 
-abstract class AbstractBlockfrost extends SharedBase
+abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterface
 {
     use Loggable;
 
