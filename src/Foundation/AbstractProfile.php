@@ -162,4 +162,14 @@ abstract class AbstractProfile extends SharedBase implements ProfileInterface
 
         return (bool)$isSaved;
     }
+
+    public function dismissNotice(string $type, bool $reset = false): bool
+    {
+        return $this->updateMeta($this->prefix . 'dismissed_' . $type, ! $reset);
+    }
+
+    public function isDismissedNotice(string $type): bool
+    {
+        return (bool)$this->getMeta($this->prefix . 'dismissed_' . $type, true);
+    }
 }

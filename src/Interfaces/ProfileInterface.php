@@ -42,4 +42,8 @@ interface ProfileInterface
     public function allTransactions(): array;
 
     public function saveTransaction(string $network, string $action, string $hash): bool;
+
+    public function dismissNotice(string $type, bool $reset = false): bool;
+
+    public function isDismissedNotice(string $type): bool;
 }
