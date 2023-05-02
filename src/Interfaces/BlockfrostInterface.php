@@ -14,6 +14,10 @@ interface BlockfrostInterface
 
     public static function getProjectId(string $network): string;
 
+    public function setClient(BlockfrostClient $client): void;
+
+    public function getClient(): BlockfrostClient;
+
     public function request(string $endpoint, array $query = []): array;
 
     public function getResponse(string $key = null);

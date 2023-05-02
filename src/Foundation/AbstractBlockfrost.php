@@ -28,6 +28,16 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
 
     abstract public static function getProjectId(string $network): string;
 
+    public function setClient(BlockfrostClient $client): void
+    {
+        $this->client = $client;
+    }
+
+    public function getClient(): BlockfrostClient
+    {
+        return $this->client;
+    }
+
     public function request(string $endpoint, array $query = []): array
     {
         $response = $this->client->request($endpoint, $query);
