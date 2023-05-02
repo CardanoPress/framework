@@ -13,7 +13,11 @@ interface BlockfrostInterface
 {
     public function __construct(string $queryNetwork, LoggerInterface $logger = null);
 
+    public static function useProjectIds(string $mainnet, string $testnet): void;
+
     public static function getProjectId(string $network): string;
+
+    public static function isReady(string $network): bool;
 
     public function setClient(BlockfrostClient $client): void;
 

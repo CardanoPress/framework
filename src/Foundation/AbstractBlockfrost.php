@@ -18,6 +18,10 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
 
     protected BlockfrostClient $client;
     protected array $lastResponse = [];
+    protected static array $projectIds = array(
+        'mainnet' => '',
+        'testnet' => '',
+    );
 
     public function __construct(string $queryNetwork, LoggerInterface $logger = null)
     {
@@ -31,7 +35,21 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
         $this->initialize(); // Set logger here
     }
 
-    abstract public static function getProjectId(string $network): string;
+    public static function useProjectIds(string $mainnet, string $testnet): void
+    {
+        self::$projectIds['mainnet'] = $mainnet;
+        self::$projectIds['testnet'] = $testnet;
+    }
+
+    public static function getProjectId(string $network): string
+    {
+        return self::$projectIds[$network] ?? '';
+    }
+
+    public static function isReady(string $network): bool
+    {
+        return '' !== self::getProjectId($network);
+    }
 
     public function setClient(BlockfrostClient $client): void
     {
