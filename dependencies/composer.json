@@ -13,7 +13,9 @@
     "themeplate/logger": "^1.3",
     "themeplate/meta": "^2.2",
     "themeplate/page": "^2.0",
-    "themeplate/settings": "^2.0"
+    "themeplate/settings": "^2.0",
+    "themeplate/cache": "^2.6",
+    "themeplate/process": "^2.6"
   },
   "require-dev": {
     "coenjacobs/mozart": "^0.7.1"

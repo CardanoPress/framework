@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "155e681e2b0bf1b18b075e8201d91f3e",
+    "content-hash": "cb0a70a630b3a8bcd0e437e95c8ebd58",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -761,6 +761,55 @@
             "time": "2022-01-02T09:53:40+00:00"
         },
         {
+            "name": "themeplate/cache",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThemePlate/Cache.git",
+                "reference": "ee61305fadcdd09586a9787af2b61729fd877efa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThemePlate/Cache/zipball/ee61305fadcdd09586a9787af2b61729fd877efa",
+                "reference": "ee61305fadcdd09586a9787af2b61729fd877efa",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "themeplate/tester": "^1.3"
+            },
+            "suggest": {
+                "themeplate/process": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Cache.php"
+                ],
+                "psr-4": {
+                    "ThemePlate\\Cache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Gene Alyson Fortunado Torcende",
+                    "email": "genealyson.torcende@gmail.com"
+                }
+            ],
+            "description": "Convenient fragment caching methods",
+            "support": {
+                "issues": "https://github.com/ThemePlate/Cache/issues",
+                "source": "https://github.com/ThemePlate/Cache/tree/v2.6.0"
+            },
+            "time": "2023-02-22T14:58:53+00:00"
+        },
+        {
             "name": "themeplate/core",
             "version": "v2.2.4",
             "source": {
@@ -981,6 +1030,49 @@
                 "source": "https://github.com/ThemePlate/Page/tree/v2.1.0"
             },
             "time": "2023-03-05T13:16:52+00:00"
+        },
+        {
+            "name": "themeplate/process",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThemePlate/Process.git",
+                "reference": "ce3b9ffbe1308661e6d3f7c3ef3ab50360baaf59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThemePlate/Process/zipball/ce3b9ffbe1308661e6d3f7c3ef3ab50360baaf59",
+                "reference": "ce3b9ffbe1308661e6d3f7c3ef3ab50360baaf59",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "themeplate/tester": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ThemePlate\\Process\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Gene Alyson Fortunado Torcende",
+                    "email": "genealyson.torcende@gmail.com"
+                }
+            ],
+            "description": "ThemePlate background process",
+            "support": {
+                "issues": "https://github.com/ThemePlate/Process/issues",
+                "source": "https://github.com/ThemePlate/Process/tree/v2.6.0"
+            },
+            "time": "2022-05-26T01:07:19+00:00"
         },
         {
             "name": "themeplate/settings",
