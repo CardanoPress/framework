@@ -66,7 +66,7 @@ abstract class AbstractInstaller extends SharedBase implements InstallerInterfac
             }
 
             do_action(static::DATA_PREFIX . 'upgrading', $currentVersion, $appVersion);
-            update_option(static::DATA_PREFIX . 'version', $appVersion);
+            update_option(static::DATA_PREFIX . 'version', $appVersion, false);
         }
     }
 
