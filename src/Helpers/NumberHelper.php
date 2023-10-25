@@ -18,7 +18,7 @@ class NumberHelper
         return number_format($number, 6);
     }
 
-    public static function shortRounded(int $number): string
+    public static function shortRounded(float $number): string
     {
         $units = ['', 'K', 'M', 'B', 'T'];
 
