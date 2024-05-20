@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5da4700555e54870ddd3dbb916ca00e",
+    "content-hash": "72304c8abea6d2921ee864c7d65f241e",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -756,16 +756,16 @@
         },
         {
             "name": "themeplate/cache",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Cache.git",
-                "reference": "7388bb6f043554fc6659e137e73e01610caf09db"
+                "reference": "bf08051773893b6db251044f11ad198976114353"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Cache/zipball/7388bb6f043554fc6659e137e73e01610caf09db",
-                "reference": "7388bb6f043554fc6659e137e73e01610caf09db",
+                "url": "https://api.github.com/repos/ThemePlate/Cache/zipball/bf08051773893b6db251044f11ad198976114353",
+                "reference": "bf08051773893b6db251044f11ad198976114353",
                 "shasum": ""
             },
             "require": {
@@ -799,9 +799,9 @@
             "description": "Convenient fragment caching methods",
             "support": {
                 "issues": "https://github.com/ThemePlate/Cache/issues",
-                "source": "https://github.com/ThemePlate/Cache/tree/v2.6.1"
+                "source": "https://github.com/ThemePlate/Cache/tree/v2.6.2"
             },
-            "time": "2024-04-25T02:17:35+00:00"
+            "time": "2024-05-20T04:06:12+00:00"
         },
         {
             "name": "themeplate/core",
@@ -846,6 +846,49 @@
                 "source": "https://github.com/ThemePlate/Core/tree/v2.6.0"
             },
             "time": "2024-04-25T04:17:35+00:00"
+        },
+        {
+            "name": "themeplate/cpt",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThemePlate/CPT.git",
+                "reference": "ed093fc454cf6ababf07fd64549221e789be47aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThemePlate/CPT/zipball/ed093fc454cf6ababf07fd64549221e789be47aa",
+                "reference": "ed093fc454cf6ababf07fd64549221e789be47aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "themeplate/tester": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ThemePlate\\CPT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Gene Alyson Fortunado Torcende",
+                    "email": "genealyson.torcende@gmail.com"
+                }
+            ],
+            "description": "ThemePlate custom post types and taxonomies",
+            "support": {
+                "issues": "https://github.com/ThemePlate/CPT/issues",
+                "source": "https://github.com/ThemePlate/CPT/tree/v2.2.0"
+            },
+            "time": "2023-03-04T04:07:02+00:00"
         },
         {
             "name": "themeplate/enqueue",
