@@ -19,6 +19,8 @@ abstract class AbstractApplication extends SharedBase implements ApplicationInte
     protected array $data;
     protected Logger $logger;
 
+    public const LOG_DIR = 'cardanopress-logs';
+
     public function __construct(string $pluginFile)
     {
         if (! function_exists('get_plugin_data')) {
@@ -27,7 +29,7 @@ abstract class AbstractApplication extends SharedBase implements ApplicationInte
 
         $this->pluginFile = $pluginFile;
         $this->data = get_plugin_data($pluginFile);
-        $this->logger = new Logger('cardanopress-logs');
+        $this->logger = new Logger(self::LOG_DIR);
 
         $this->initialize();
     }

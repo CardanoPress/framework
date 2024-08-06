@@ -41,6 +41,25 @@ abstract class AbstractInstaller extends SharedBase implements InstallerInterfac
 
     public function activate(): void
     {
+        global $wp_filesystem;
+        WP_Filesystem();
+
+        if ($wp_filesystem) {
+            $logDir = $wp_filesystem->wp_content_dir() . $this->application::LOG_DIR;
+
+            if (! $wp_filesystem->exists($logDir)) {
+                $wp_filesystem->mkdir($logDir);
+            }
+
+            if (! $wp_filesystem->exists($logDir . '/.htaccess')) {
+                $wp_filesystem->put_contents($logDir . '/.htaccess', 'deny from all');
+            }
+
+            if (! $wp_filesystem->exists($logDir . '/index.php')) {
+                $wp_filesystem->copy(__DIR__ . '/index.php', $logDir . '/index.php');
+            }
+        }
+
         if ('yes' === get_transient(static::DATA_PREFIX . 'activating')) {
             $this->log(
                 sprintf(
