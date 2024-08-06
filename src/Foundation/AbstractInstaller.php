@@ -39,7 +39,7 @@ abstract class AbstractInstaller extends SharedBase implements InstallerInterfac
         add_action('admin_init', [$this, 'maybeDoUpgrades']);
     }
 
-    public function activate(): void
+    public function protectLogs(): void
     {
         global $wp_filesystem;
         WP_Filesystem();
@@ -59,6 +59,11 @@ abstract class AbstractInstaller extends SharedBase implements InstallerInterfac
                 $wp_filesystem->copy(__DIR__ . '/index.php', $logDir . '/index.php');
             }
         }
+    }
+
+    public function activate(): void
+    {
+        $this->protectLogs();
 
         if ('yes' === get_transient(static::DATA_PREFIX . 'activating')) {
             $this->log(
