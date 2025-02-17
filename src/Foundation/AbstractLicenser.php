@@ -97,7 +97,7 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
         } else {
             $response = json_decode($data['body'], true);
 
-            if (false === $response['success']) {
+            if (isset($response['error'])) {
                 $message = $this->getErrorMessage($response);
             } else {
                 switch ($response['license']) {
