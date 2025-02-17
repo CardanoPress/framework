@@ -61,6 +61,14 @@ class LicenseHelper
         ob_start();
         ?>
         <script>
+            jQuery(function() {
+                var $key = jQuery('#<?php echo $action . '_key'; ?>')
+
+                if ('password' === $key.attr('type')) {
+                    $key.attr('readonly', 'readonly')
+                }
+            });
+
             jQuery(document).on('click', '#<?php echo $action; ?> .button', function(e) {
                 e.preventDefault()
 
