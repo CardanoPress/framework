@@ -16,7 +16,7 @@ class LicenseHelper
     public static function statusHandler(string $raw, array $config): string
     {
         $data = json_decode($raw, true);
-        $action = LicenseHelper::isValid($data) ? __('Deactivate') : __('Activate');
+        $action = self::isValid($data) ? __('Deactivate') : __('Activate');
 
         ob_start();
         ?>
