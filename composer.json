@@ -44,7 +44,7 @@
     }
   },
   "scripts": {
-    "index.php": "find . -type d -not \\( -path ./vendor -prune \\) -exec cp -f ./index.php {} \\;",
+    "index.php": "find . -type d -not \\( -path ./.git -prune \\) -not \\( -path ./vendor -prune \\) -exec cp -f ./index.php {} \\;",
     "analyse": "themeplate analyse",
     "lint": "themeplate lint",
     "fix": "themeplate fix"
