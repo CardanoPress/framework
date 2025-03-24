@@ -1,12 +1,15 @@
 {
   "config": {
+    "platform": {
+      "php": "7.4"
+    },
     "optimize-autoloader": true,
     "sort-packages": true
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "^7.4|^8.0",
+    "php": "^7.4|^8.2",
     "ext-json": "*",
     "guzzlehttp/guzzle": "^7.5",
     "themeplate/cache": "^2.6",

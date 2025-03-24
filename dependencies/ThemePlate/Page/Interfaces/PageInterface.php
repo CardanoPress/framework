@@ -11,9 +11,13 @@ namespace CardanoPress\Dependencies\ThemePlate\Page\Interfaces;
 
 interface PageInterface {
 
-	public function capability( string $capability ): self;
+	public function capability( string $capability ): static;
 
-	public function position( int $position ): self;
+	public function title( string $title ): static;
+
+	public function slug( string $slug ): static;
+
+	public function position( int $position ): static;
 
 	public function menu(): void;
 

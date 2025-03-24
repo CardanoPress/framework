@@ -17,6 +17,9 @@
     }
   ],
   "config": {
+    "platform": {
+      "php": "7.4"
+    },
     "optimize-autoloader": true,
     "allow-plugins": {
       "automattic/jetpack-autoloader": true,
@@ -27,7 +30,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "php": "^7.4|^8.0",
+    "php": "^7.4|^8.2",
     "ext-json": "*"
   },
   "require-dev": {

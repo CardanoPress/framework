@@ -72,7 +72,7 @@ abstract class Form {
 	}
 
 
-	public function fields( array $collection ): self {
+	public function fields( array $collection ): static {
 
 		$this->fields = new Fields( $collection );
 
