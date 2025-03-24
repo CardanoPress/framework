@@ -22,7 +22,7 @@ class MenuPage extends BasePage implements MenuPageInterface {
 	}
 
 
-	public function icon( string $url ): static {
+	public function icon( string $url ): self {
 
 		$this->config['icon_url'] = $url;
 
