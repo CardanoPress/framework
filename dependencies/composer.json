@@ -22,9 +22,6 @@
     "themeplate/process": "^2.6",
     "themeplate/settings": "^2.1.1"
   },
-  "require-dev": {
-    "coenjacobs/mozart": "^0.7.1"
-  },
   "extra": {
     "mozart": {
       "dep_namespace": "CardanoPress\\Dependencies\\",
@@ -37,8 +34,9 @@
     "action-prefix": [
       "rm -rf assets ThemePlate/assets",
       "mv vendor/themeplate/core/assets .",
-      "mozart compose",
+      "../vendor/bin/mozart compose",
       "mv assets ThemePlate",
+      "rm -rf vendor",
       "composer -d .. run index.php"
     ],
     "post-install-cmd": "@action-prefix",

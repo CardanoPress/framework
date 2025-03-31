@@ -35,7 +35,8 @@
   },
   "require-dev": {
     "automattic/jetpack-autoloader": "^2.12",
-    "themeplate/tester": "^2.1"
+    "themeplate/tester": "^2.1",
+    "coenjacobs/mozart": "^0.7.1"
   },
   "autoload": {
     "files": [
