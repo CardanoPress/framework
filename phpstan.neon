@@ -1,0 +1,14 @@
+parameters:
+  level: 5
+  excludePaths:
+    analyse:
+      - dependencies
+    analyseAndScan:
+      - vendor
+  scanDirectories:
+    - .cache/wordpress
+    - .cache/wordpress-tests-lib
+  ignoreErrors:
+    -
+      identifier: trait.unused
+      path: src/Traits
