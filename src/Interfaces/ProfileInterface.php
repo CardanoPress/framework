@@ -13,7 +13,7 @@ interface ProfileInterface
 
     public function unsetUserAuth(): void;
 
-    public function getData(string $key = null);
+    public function getData(?string $key = null);
 
     public function addRole(string $role): void;
 

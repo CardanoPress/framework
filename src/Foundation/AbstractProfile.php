@@ -38,7 +38,7 @@ abstract class AbstractProfile extends SharedBase implements ProfileInterface
         do_action('wp_logout', $this->getData('ID'));
     }
 
-    public function getData(string $key = null)
+    public function getData(?string $key = null)
     {
         if (null === $key) {
             return $this->user;
