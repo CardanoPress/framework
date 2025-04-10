@@ -28,7 +28,7 @@ class LicenseHelper
             <span class="spinner" style="margin-top: -4px; float: none;"></span>
         </div>
         <?php
-        return ob_get_clean();
+        return wp_kses_post((string) ob_get_clean());
     }
 
     public static function customStyle(string $page): void
@@ -51,7 +51,7 @@ class LicenseHelper
             }
         </style>
         <?php
-        echo wp_kses(ob_get_clean(), ['style' => []]);
+        echo wp_kses((string) ob_get_clean(), ['style' => []]);
     }
 
     public static function customScript(string $page): void
@@ -122,6 +122,6 @@ class LicenseHelper
             })
         </script>
         <?php
-        echo wp_kses(ob_get_clean(), ['script' => [], 'input' => ['type' => [], 'name' => []]]);
+        echo wp_kses((string) ob_get_clean(), ['script' => [], 'input' => ['type' => [], 'name' => []]]);
     }
 }

@@ -75,7 +75,7 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
         return [
             'raw' => $response,
             'error' => is_wp_error($response),
-            'code' => wp_remote_retrieve_response_code($response),
+            'code' => (int) wp_remote_retrieve_response_code($response),
             'body' => wp_remote_retrieve_body($response),
         ];
     }
@@ -127,7 +127,7 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
                     __('Your license key expired on %s.', 'cardanopress'),
                     date_i18n(
                         get_option('date_format'),
-                        strtotime($response['expires'], current_time('timestamp'))
+                        strtotime($response['expires'], (int) current_time('timestamp'))
                     )
                 );
                 break;

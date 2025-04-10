@@ -35,6 +35,6 @@ abstract class AbstractShortcode implements HookInterface
      */
     protected function getString($value): string
     {
-        return is_array($value) ? json_encode($value) : $value;
+        return is_array($value) ? (string) json_encode($value) : $value;
     }
 }

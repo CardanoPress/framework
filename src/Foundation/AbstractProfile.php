@@ -145,7 +145,7 @@ abstract class AbstractProfile extends SharedBase implements ProfileInterface
 
     public function saveAssets(array $data): bool
     {
-        return $this->updateMeta($this->prefix . 'stored_assets', $data);
+        return (bool) $this->updateMeta($this->prefix . 'stored_assets', $data);
     }
 
     public function allTransactions(): array
@@ -165,11 +165,11 @@ abstract class AbstractProfile extends SharedBase implements ProfileInterface
 
     public function dismissNotice(string $type, bool $reset = false): bool
     {
-        return $this->updateMeta($this->prefix . 'dismissed_' . $type, ! $reset);
+        return (bool) $this->updateMeta($this->prefix . 'dismissed_' . $type, ! $reset);
     }
 
     public function isDismissedNotice(string $type): bool
     {
-        return (bool)$this->getMeta($this->prefix . 'dismissed_' . $type, true);
+        return (bool) $this->getMeta($this->prefix . 'dismissed_' . $type, true);
     }
 }
