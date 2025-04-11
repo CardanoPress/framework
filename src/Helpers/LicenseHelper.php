@@ -4,6 +4,7 @@ namespace CardanoPress\Helpers;
 
 class LicenseHelper
 {
+    /** @param ?array{license?: string} $data */
     public static function isValid(?array $data): bool
     {
         if (null === $data) {
@@ -13,6 +14,7 @@ class LicenseHelper
         return isset($data['license']) && 'valid' === $data['license'];
     }
 
+    /** @param array{id: string} $config */
     public static function statusHandler(string $raw, array $config): string
     {
         $data = json_decode($raw, true);

@@ -17,7 +17,16 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
     use Loggable;
 
     protected BlockfrostClient $client;
+    /**
+     * @var array{}|array{
+     *     status_code: int,
+     *     data: mixed[],
+     *     error?: string,
+     * }
+     */
     protected array $lastResponse = [];
+
+    /** @var array<string, string> */
     protected static array $projectIds = [
         'mainnet' => '',
         'testnet' => '',
@@ -75,6 +84,7 @@ abstract class AbstractBlockfrost extends SharedBase implements BlockfrostInterf
         return $response;
     }
 
+    /** @return mixed */
     public function getResponse(?string $key = null)
     {
         if (null === $key) {

@@ -57,6 +57,14 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
         );
     }
 
+    /**
+     * @return array{
+     *     raw: mixed[]|WP_Error,
+     *     error: bool,
+     *     code: int,
+     *     body: string,
+     * }
+     */
     protected function callApi(bool $sslVerify = true, int $timeout = 15): array
     {
         $response = wp_remote_post(
@@ -121,6 +129,7 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
         wp_send_json_success(compact('message', 'response'));
     }
 
+    /** @param array{error: string, expires: string} $response */
     protected function getErrorMessage(array $response): string
     {
         switch ($response['error']) {

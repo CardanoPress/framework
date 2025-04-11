@@ -6,11 +6,14 @@
 
 namespace CardanoPress\Helpers;
 
+use WP_Hook;
+
 class CompatHelper
 {
     public const TEMPLATES = ['header.php', 'footer.php'];
     public const ACTIONS = ['wp_head', 'wp_body_open', 'wp_footer'];
 
+    /** @var array<string, WP_Hook[]> */
     protected array $temporaryActionHolder = [];
 
     public function start(): void

@@ -98,7 +98,11 @@ class BlockfrostClient
      * @param  string  $endpoint
      * @param  mixed[] $query
      *
-     * @return array
+     * @return array{
+     *     status_code: int,
+     *     data: mixed[],
+     *     error?: string,
+     * }
      */
     public function request(string $endpoint, array $query = []): array
     {
