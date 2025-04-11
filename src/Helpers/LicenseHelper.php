@@ -6,7 +6,7 @@ class LicenseHelper
 {
     public static function isValid(?array $data): bool
     {
-        if (empty($data)) {
+        if (null === $data) {
             return false;
         }
 

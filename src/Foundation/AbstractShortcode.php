@@ -29,7 +29,7 @@ abstract class AbstractShortcode implements HookInterface
     }
 
     /**
-     * @param array|string $value
+     * @param mixed $value
      *
      * @return string
      */

@@ -96,7 +96,7 @@ class BlockfrostClient
      * Make a GET request to the API endpoint
      *
      * @param  string  $endpoint
-     * @param  array   $query
+     * @param  mixed[] $query
      *
      * @return array
      */

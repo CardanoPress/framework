@@ -32,7 +32,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $this->initialize();
     }
 
-    protected function readAssetsManifest(string $manifest)
+    protected function readAssetsManifest(string $manifest): array
     {
         if (! file_exists($manifest)) {
             return [];

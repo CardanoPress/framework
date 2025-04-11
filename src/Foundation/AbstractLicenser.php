@@ -11,6 +11,7 @@ use CardanoPress\Interfaces\ApplicationInterface;
 use CardanoPress\Interfaces\HookInterface;
 use CardanoPress\SharedBase;
 use CardanoPress\Traits\Loggable;
+use WP_Error;
 
 abstract class AbstractLicenser extends SharedBase implements HookInterface
 {
@@ -90,7 +91,9 @@ abstract class AbstractLicenser extends SharedBase implements HookInterface
 
         if ($data['error'] || 200 !== $data['code']) {
             if (is_wp_error($data['error'])) {
-                $message = $data['raw']->get_error_message();
+                /** @var WP_Error $error */
+                $error = $data['raw'];
+                $message = $error->get_error_message();
             } else {
                 $message = __('An error occurred, please try again.', 'cardanopress');
             }
