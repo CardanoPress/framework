@@ -20,7 +20,8 @@
     "themeplate/meta": "^2.2",
     "themeplate/page": "^2.1",
     "themeplate/process": "^2.6",
-    "themeplate/settings": "^2.1.1"
+    "themeplate/settings": "^2.1.1",
+    "themeplate/vite": "^1.6"
   },
   "extra": {
     "mozart": {
@@ -37,6 +38,7 @@
       "../vendor/bin/mozart compose",
       "mv assets ThemePlate",
       "rm -rf vendor",
+      "composer -d .. dump-autoload",
       "composer -d .. run index.php"
     ],
     "post-install-cmd": "@action-prefix",
