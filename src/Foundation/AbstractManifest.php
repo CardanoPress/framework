@@ -9,6 +9,7 @@ namespace CardanoPress\Foundation;
 
 use CardanoPress\Dependencies\ThemePlate\Enqueue\CustomData;
 use CardanoPress\Dependencies\ThemePlate\Enqueue\Dynamic;
+use CardanoPress\Dependencies\ThemePlate\Vite;
 use CardanoPress\Interfaces\HookInterface;
 use CardanoPress\Interfaces\ManifestInterface;
 use CardanoPress\SharedBase;
@@ -19,6 +20,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
     protected string $version;
     protected CustomData $data;
     protected Dynamic $dynamic;
+    protected ?Vite $vite = null;
 
     public const HANDLE_PREFIX = '';
 
@@ -28,6 +30,10 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $this->version = $version;
         $this->data = new CustomData();
         $this->dynamic = new Dynamic();
+
+        if (file_exists(plugin_dir_path($this->path) . Vite::CONFIG)) {
+            $this->vite = new Vite(plugin_dir_path($this->path), plugin_dir_url($this->path));
+        }
 
         $this->initialize();
     }
@@ -62,6 +68,15 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
 
     public function enqueueAssets(): void
     {
+        if (null === $this->vite) {
+            $this->webpackAssets();
+        } else {
+            $this->viteAssets();
+        }
+    }
+
+    protected function webpackAssets(): void
+    {
         $manifest = $this->path . 'manifest.json';
         $base = plugin_dir_url($manifest);
 
@@ -85,6 +100,35 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         }
 
         $this->dynamic->action();
+    }
+
+    protected function viteAssets(): void
+    {
+        $manifest = plugin_dir_path($this->path) . Vite::CONFIG;
+        $manifest = $this->readAssetsManifest($manifest);
+
+        $this->vite->prefix(self::HANDLE_PREFIX);
+
+        foreach ($manifest['entryNames'] ?? [] as $entry => $file) {
+            $parts = explode('.', $file);
+
+            if (1 === count($parts) || ! in_array($parts[1], ['ts', 'css'])) {
+                continue;
+            }
+
+            $type = 'ts' === $parts[1] ? 'script' : 'style';
+            $func = 'wp_dequeue_' . $type;
+            $handle = $this->vite->$type(
+                $entry,
+                ('script' === $type && 'script' !== $entry) ? [static::HANDLE_PREFIX . 'script'] : [],
+                'ts' === $parts[1] ? ['in_footer' => true] : ['media' => 'all']
+            );
+
+            $func($handle);
+        }
+
+        $this->dynamic->action();
+        $this->vite->action();
     }
 
     public function enqueueScript(string $handle): void
