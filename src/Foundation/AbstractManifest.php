@@ -7,6 +7,7 @@
 
 namespace CardanoPress\Foundation;
 
+use CardanoPress\Asset;
 use CardanoPress\Dependencies\ThemePlate\Enqueue\CustomData;
 use CardanoPress\Dependencies\ThemePlate\Enqueue\Dynamic;
 use CardanoPress\Dependencies\ThemePlate\Vite;
@@ -82,23 +83,23 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $manifest = $this->path . 'manifest.json';
         $base = plugin_dir_url($manifest);
 
-        foreach ($this->readAssetsManifest($manifest) as $file => $asset) {
-            $parts = explode('.', $file);
+        foreach ($this->readAssetsManifest($manifest) as $file => $entry) {
+            $asset = new Asset($file);
 
-            if (1 === count($parts) || ! in_array($parts[1], ['js', 'css'])) {
+            if (! $asset->isEntry()) {
                 continue;
             }
 
-            $type = 'js' === $parts[1] ? 'script' : 'style';
-            $arg = 'js' === $parts[1] ? true : 'all';
+            $type = $asset->type();
+            $arg = 'script' === $type ? true : 'all';
             $func = 'wp_register_' . $type;
             $deps = [];
 
-            if ('script' === $type && 'script' !== $parts[0]) {
+            if ('script' === $type && 'script' !== $asset->name()) {
                 $deps[] = static::HANDLE_PREFIX . 'script';
             }
 
-            $func(static::HANDLE_PREFIX . $parts[0], $base . $asset, $deps, $this->version, $arg);
+            $func(static::HANDLE_PREFIX . $asset->name(), $base . $entry, $deps, $this->version, $arg);
         }
     }
 
@@ -110,18 +111,18 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $this->vite->prefix(static::HANDLE_PREFIX);
 
         foreach ($manifest['entryNames'] ?? [] as $entry => $file) {
-            $parts = explode('.', $file);
+            $asset = new Asset($file);
 
-            if (1 === count($parts) || ! in_array($parts[1], ['ts', 'css'])) {
+            if (! $asset->isEntry()) {
                 continue;
             }
 
-            $type = 'ts' === $parts[1] ? 'script' : 'style';
+            $type = $asset->type();
             $func = 'wp_dequeue_' . $type;
             $handle = $this->vite->$type(
                 $entry,
                 ('script' === $type && 'script' !== $entry) ? [static::HANDLE_PREFIX . 'script'] : [],
-                'ts' === $parts[1] ? ['in_footer' => true] : ['media' => 'all']
+                'script' === $type ? ['in_footer' => true] : ['media' => 'all']
             );
 
             $func($handle);
