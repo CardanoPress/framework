@@ -73,6 +73,8 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         } else {
             $this->viteAssets();
         }
+
+        $this->dynamic->action();
     }
 
     protected function webpackAssets(): void
@@ -98,8 +100,6 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
 
             $func(static::HANDLE_PREFIX . $parts[0], $base . $asset, $deps, $this->version, $arg);
         }
-
-        $this->dynamic->action();
     }
 
     protected function viteAssets(): void
@@ -107,7 +107,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $manifest = plugin_dir_path($this->path) . Vite::CONFIG;
         $manifest = $this->readAssetsManifest($manifest);
 
-        $this->vite->prefix(self::HANDLE_PREFIX);
+        $this->vite->prefix(static::HANDLE_PREFIX);
 
         foreach ($manifest['entryNames'] ?? [] as $entry => $file) {
             $parts = explode('.', $file);
@@ -127,7 +127,6 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
             $func($handle);
         }
 
-        $this->dynamic->action();
         $this->vite->action();
     }
 
