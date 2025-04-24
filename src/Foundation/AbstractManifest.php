@@ -39,7 +39,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
         $this->initialize();
     }
 
-    /** @return array<string, string> */
+    /** @return array<string, mixed> */
     protected function readAssetsManifest(string $manifest): array
     {
         if (! file_exists($manifest)) {
@@ -92,6 +92,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
 
             $type = $asset->type();
             $arg = 'script' === $type ? true : 'all';
+            /** @var non-falsy-string $func */
             $func = 'wp_register_' . $type;
             $deps = [];
 
@@ -99,12 +100,17 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
                 $deps[] = static::HANDLE_PREFIX . 'script';
             }
 
+            /** @var callable-string $func */
             $func(static::HANDLE_PREFIX . $asset->name(), $base . $entry, $deps, $this->version, $arg);
         }
     }
 
     protected function viteAssets(): void
     {
+        if (null === $this->vite) {
+            return;
+        }
+
         $manifest = plugin_dir_path($this->path) . Vite::CONFIG;
         $manifest = $this->readAssetsManifest($manifest);
 
@@ -118,6 +124,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
             }
 
             $type = $asset->type();
+            /** @var non-falsy-string $func */
             $func = 'wp_dequeue_' . $type;
             $handle = $this->vite->$type(
                 $entry,
@@ -125,6 +132,7 @@ abstract class AbstractManifest extends SharedBase implements ManifestInterface,
                 'script' === $type ? ['in_footer' => true] : ['media' => 'all']
             );
 
+            /** @var callable-string $func */
             $func($handle);
         }
 

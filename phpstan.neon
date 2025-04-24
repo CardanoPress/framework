@@ -9,6 +9,7 @@ parameters:
     - .cache/wordpress
     - .cache/wordpress-tests-lib
   ignoreErrors:
+    - '#Constant MINUTE_IN_SECONDS not found.#'
     -
       identifier: trait.unused
       path: src/Traits
