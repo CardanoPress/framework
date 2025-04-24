@@ -805,16 +805,16 @@
         },
         {
             "name": "themeplate/core",
-            "version": "v2.13.0",
+            "version": "v2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Core.git",
-                "reference": "b68281a36ded5abcf14b1cb3bcf0192db4c3f9d8"
+                "reference": "d4f95cd16110c993b9b1d477bac2021f7875a656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Core/zipball/b68281a36ded5abcf14b1cb3bcf0192db4c3f9d8",
-                "reference": "b68281a36ded5abcf14b1cb3bcf0192db4c3f9d8",
+                "url": "https://api.github.com/repos/ThemePlate/Core/zipball/d4f95cd16110c993b9b1d477bac2021f7875a656",
+                "reference": "d4f95cd16110c993b9b1d477bac2021f7875a656",
                 "shasum": ""
             },
             "require": {
@@ -848,9 +848,9 @@
             "description": "ThemePlate core functions and helpers",
             "support": {
                 "issues": "https://github.com/ThemePlate/Core/issues",
-                "source": "https://github.com/ThemePlate/Core/tree/v2.13.0"
+                "source": "https://github.com/ThemePlate/Core/tree/v2.14.0"
             },
-            "time": "2025-04-14T04:37:46+00:00"
+            "time": "2025-04-19T16:12:49+00:00"
         },
         {
             "name": "themeplate/cpt",
