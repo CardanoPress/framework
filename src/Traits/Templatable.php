@@ -7,19 +7,18 @@
 
 namespace CardanoPress\Traits;
 
-use CardanoPress\Interfaces\TemplatesInterface;
-use CardanoPress\Helpers\ThemeHelper;
+use CardanoPress\Foundation\AbstractTemplates;
 
 trait Templatable
 {
-    protected TemplatesInterface $templates;
+    protected AbstractTemplates $templates;
 
-    protected function setTemplates(TemplatesInterface $templates): void
+    protected function setTemplates(AbstractTemplates $templates): void
     {
         $this->templates = $templates;
     }
 
-    protected function getTemplates(): TemplatesInterface
+    protected function getTemplates(): AbstractTemplates
     {
         return $this->templates;
     }
