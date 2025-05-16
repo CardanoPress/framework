@@ -756,22 +756,23 @@
         },
         {
             "name": "themeplate/cache",
-            "version": "v2.9.1",
+            "version": "v2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Cache.git",
-                "reference": "7aca8a38218c01e0befc652627cfae852c1a6dc7"
+                "reference": "32d9db261496f2202c1f99b025fa90d398ba65a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Cache/zipball/7aca8a38218c01e0befc652627cfae852c1a6dc7",
-                "reference": "7aca8a38218c01e0befc652627cfae852c1a6dc7",
+                "url": "https://api.github.com/repos/ThemePlate/Cache/zipball/32d9db261496f2202c1f99b025fa90d398ba65a6",
+                "reference": "32d9db261496f2202c1f99b025fa90d398ba65a6",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.2"
             },
             "require-dev": {
+                "themeplate/process": "^2.6",
                 "themeplate/tester": "^2.2"
             },
             "suggest": {
@@ -799,22 +800,22 @@
             "description": "Convenient fragment caching methods",
             "support": {
                 "issues": "https://github.com/ThemePlate/Cache/issues",
-                "source": "https://github.com/ThemePlate/Cache/tree/v2.9.1"
+                "source": "https://github.com/ThemePlate/Cache/tree/v2.10.0"
             },
-            "time": "2025-03-28T14:12:05+00:00"
+            "time": "2025-05-15T14:35:16+00:00"
         },
         {
             "name": "themeplate/core",
-            "version": "v2.14.0",
+            "version": "v2.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Core.git",
-                "reference": "d4f95cd16110c993b9b1d477bac2021f7875a656"
+                "reference": "c1e95bc73cacc973eaa7d738060328aee2ac0bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Core/zipball/d4f95cd16110c993b9b1d477bac2021f7875a656",
-                "reference": "d4f95cd16110c993b9b1d477bac2021f7875a656",
+                "url": "https://api.github.com/repos/ThemePlate/Core/zipball/c1e95bc73cacc973eaa7d738060328aee2ac0bae",
+                "reference": "c1e95bc73cacc973eaa7d738060328aee2ac0bae",
                 "shasum": ""
             },
             "require": {
@@ -827,7 +828,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "2.9.x-dev"
+                    "dev-develop": "2.9999.x-dev"
                 }
             },
             "autoload": {
@@ -848,9 +849,9 @@
             "description": "ThemePlate core functions and helpers",
             "support": {
                 "issues": "https://github.com/ThemePlate/Core/issues",
-                "source": "https://github.com/ThemePlate/Core/tree/v2.14.0"
+                "source": "https://github.com/ThemePlate/Core/tree/v2.15.0"
             },
-            "time": "2025-04-19T16:12:49+00:00"
+            "time": "2025-05-14T13:51:08+00:00"
         },
         {
             "name": "themeplate/cpt",
@@ -897,16 +898,16 @@
         },
         {
             "name": "themeplate/enqueue",
-            "version": "v2.8.0",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Enqueue.git",
-                "reference": "257e22a52ac48a70a89e1d3f09f05b71bfbdd9fb"
+                "reference": "d55bd635d765583a5a58fb84cec730b3b64c5e6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Enqueue/zipball/257e22a52ac48a70a89e1d3f09f05b71bfbdd9fb",
-                "reference": "257e22a52ac48a70a89e1d3f09f05b71bfbdd9fb",
+                "url": "https://api.github.com/repos/ThemePlate/Enqueue/zipball/d55bd635d765583a5a58fb84cec730b3b64c5e6b",
+                "reference": "d55bd635d765583a5a58fb84cec730b3b64c5e6b",
                 "shasum": ""
             },
             "require": {
@@ -937,9 +938,9 @@
             "description": "Helper for registered dependencies",
             "support": {
                 "issues": "https://github.com/ThemePlate/Enqueue/issues",
-                "source": "https://github.com/ThemePlate/Enqueue/tree/v2.8.0"
+                "source": "https://github.com/ThemePlate/Enqueue/tree/v2.9.0"
             },
-            "time": "2025-03-28T11:45:44+00:00"
+            "time": "2025-05-15T11:37:20+00:00"
         },
         {
             "name": "themeplate/logger",
@@ -1075,16 +1076,16 @@
         },
         {
             "name": "themeplate/process",
-            "version": "v2.8.0",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Process.git",
-                "reference": "9002eb7bb8573674dbb01c54194f7413a873aca2"
+                "reference": "7cc131a3fe777af37d1e4ad56e16eb04cb202c7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Process/zipball/9002eb7bb8573674dbb01c54194f7413a873aca2",
-                "reference": "9002eb7bb8573674dbb01c54194f7413a873aca2",
+                "url": "https://api.github.com/repos/ThemePlate/Process/zipball/7cc131a3fe777af37d1e4ad56e16eb04cb202c7c",
+                "reference": "7cc131a3fe777af37d1e4ad56e16eb04cb202c7c",
                 "shasum": ""
             },
             "require": {
@@ -1112,22 +1113,22 @@
             "description": "ThemePlate background process",
             "support": {
                 "issues": "https://github.com/ThemePlate/Process/issues",
-                "source": "https://github.com/ThemePlate/Process/tree/v2.8.0"
+                "source": "https://github.com/ThemePlate/Process/tree/v2.9.0"
             },
-            "time": "2025-03-28T13:10:35+00:00"
+            "time": "2025-05-15T04:57:33+00:00"
         },
         {
             "name": "themeplate/resource",
-            "version": "v2.4.1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Resource.git",
-                "reference": "4431cf751d12ff5396f3366d9575466371f6d833"
+                "reference": "6be6ad492df4dbae1110cf6d4f6ee3bc201fb1e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Resource/zipball/4431cf751d12ff5396f3366d9575466371f6d833",
-                "reference": "4431cf751d12ff5396f3366d9575466371f6d833",
+                "url": "https://api.github.com/repos/ThemePlate/Resource/zipball/6be6ad492df4dbae1110cf6d4f6ee3bc201fb1e8",
+                "reference": "6be6ad492df4dbae1110cf6d4f6ee3bc201fb1e8",
                 "shasum": ""
             },
             "require": {
@@ -1158,9 +1159,9 @@
             "description": "ThemePlate resource hinting",
             "support": {
                 "issues": "https://github.com/ThemePlate/Resource/issues",
-                "source": "https://github.com/ThemePlate/Resource/tree/v2.4.1"
+                "source": "https://github.com/ThemePlate/Resource/tree/v2.5.0"
             },
-            "time": "2025-03-28T12:16:58+00:00"
+            "time": "2025-05-15T01:03:34+00:00"
         },
         {
             "name": "themeplate/settings",
@@ -1208,16 +1209,16 @@
         },
         {
             "name": "themeplate/vite",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ThemePlate/Vite.git",
-                "reference": "5b2567f2bf1c494895ecfc0ae464085a442b82be"
+                "reference": "49d036f1ea56c1fa47183456e6454015880c2cb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ThemePlate/Vite/zipball/5b2567f2bf1c494895ecfc0ae464085a442b82be",
-                "reference": "5b2567f2bf1c494895ecfc0ae464085a442b82be",
+                "url": "https://api.github.com/repos/ThemePlate/Vite/zipball/49d036f1ea56c1fa47183456e6454015880c2cb1",
+                "reference": "49d036f1ea56c1fa47183456e6454015880c2cb1",
                 "shasum": ""
             },
             "require": {
@@ -1248,9 +1249,9 @@
             "description": "Straight-forward Vite integration for WordPress",
             "support": {
                 "issues": "https://github.com/ThemePlate/Vite/issues",
-                "source": "https://github.com/ThemePlate/Vite/tree/v1.6.0"
+                "source": "https://github.com/ThemePlate/Vite/tree/v1.7.0"
             },
-            "time": "2024-05-29T10:59:13+00:00"
+            "time": "2025-05-15T08:57:14+00:00"
         }
     ],
     "packages-dev": [],
