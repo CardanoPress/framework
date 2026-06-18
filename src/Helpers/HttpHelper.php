@@ -12,16 +12,16 @@ class HttpHelper
     public const HTTP_RESPONSE_LIMIT_BYTES = 262144;
 
     /** @return array{timeout: int, sslverify: bool, limit_response_size: int} */
-    public function getRequestArgs(string $url): array
+    public static function getRequestArgs(string $url): array
     {
         return [
-            'timeout' => $this->getRequestTimeout($url),
-            'sslverify' => $this->getSslVerify($url),
-            'limit_response_size' => $this->getResponseSizeLimit($url),
+            'timeout' => self::getRequestTimeout($url),
+            'sslverify' => self::getSslVerify($url),
+            'limit_response_size' => self::getResponseSizeLimit($url),
         ];
     }
 
-    public function getRequestTimeout(string $url): int
+    public static function getRequestTimeout(string $url): int
     {
         $timeout = (int) apply_filters('http_request_timeout', self::HTTP_TIMEOUT_SECONDS, $url);
 
@@ -32,7 +32,7 @@ class HttpHelper
         return min($timeout, self::HTTP_TIMEOUT_SECONDS);
     }
 
-    public function getSslVerify(string $url): bool
+    public static function getSslVerify(string $url): bool
     {
         // Keep WordPress-local SSL override compatibility but ignore non-bool values.
         $sslverify = apply_filters('https_local_ssl_verify', true, $url);
@@ -40,7 +40,7 @@ class HttpHelper
         return is_bool($sslverify) ? $sslverify : true;
     }
 
-    public function getResponseSizeLimit(string $url): int
+    public static function getResponseSizeLimit(string $url): int
     {
         $limit = (int) apply_filters('cardanopress_http_response_size_limit', self::HTTP_RESPONSE_LIMIT_BYTES, $url);
 
